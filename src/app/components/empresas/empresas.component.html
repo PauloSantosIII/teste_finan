@@ -1,1 +1,120 @@
-<p>empresas works!</p>
+<div class="card border-0">
+  <div class="card-header bg-white d-flex justify-content-between">
+    <h3>Formulário de Cadastro de Empresa</h3> <h6>{{ verbo }}</h6>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="form-row d-flex">
+        <div class="form-group col-md-3">
+          <label>CNPJ</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="cnpj"
+            mask="00.000.000/0000-00"
+            placeholder="00.000.000/0000-00"
+          />
+        </div>
+        <div class="form-group col-md-9">
+          <label>Nome</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="nome"
+            placeholder="Nome (Razão Social)"
+          />
+        </div>
+      </div>
+      <div class="form-row mt-3">
+        <div class="form-group col-md-12">
+          <strong><u>Endereço</u></strong>
+        </div>
+      </div>
+      <div class="form-row d-flex">
+        <div class="form-group col-md-2">
+          <label>CEP</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="cep"
+            mask="00.000-000"
+            placeholder="00.000-000"
+          />
+        </div>
+        <div class="form-group col-md-7">
+          <label>Logradouro</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="logradouro"
+            placeholder="av/rua/..."
+          />
+        </div>
+        <div class="form-group col-md-1">
+          <label>Nº</label>
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            formControlName="numero"
+            placeholder="000"
+          />
+        </div>
+        <div class="form-group col-md-2">
+          <label>Complemento</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="complemento"
+            placeholder="complemento"
+          />
+        </div>
+      </div>
+      <div class="form-row d-flex">
+        <div class="form-group col-md-4">
+          <label>Bairro</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="bairro"
+            placeholder="bairro"
+          />
+        </div>
+        <div class="form-group col-md-4">
+          <label>Cidade</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="cidade"
+            placeholder="cidade/UF"
+          />
+        </div>
+        <div class="form-group col-md-4">
+          <label>Pais</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            formControlName="pais"
+            placeholder="país"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer bg-white fixed-bottom">
+    <div class="text-center float-end">
+      <div class="btn-toolbar justify-content-center" role="toolbar">
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-sm me-1"
+          [routerLink]="['/empresas']"
+        >Cancelar</button>
+        <button
+          type="button"
+          class="btn btn-sm"
+          [ngClass]="verbo === 'incluir' ? 'btn-outline-success' : verbo === 'alterar' ? 'btn-outline-warning' : 'btn-outline-danger' "
+          (click)="salvar()"
+        >{{ verbo === 'incluir' ? 'Salvar' : verbo === 'alterar' ? 'Alterar' : 'Excluir' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

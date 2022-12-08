@@ -1,0 +1,37 @@
+<div class="car-body">
+  <div class="container mt-2 text-end">
+    <button
+      type="button"
+      class="btn btn-outline-dark btn-sm"
+      [routerLink]="[0, 'incluir']"
+    >Empresa +</button>
+  </div>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr class="bg-dark text-light">
+        <th>Empresa</th>
+        <th class="text-end">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of lista">
+        <td>
+          <strong>{{ item.nome }}</strong><br>
+          <small>CNPJ: {{ item.cnpj }}</small>
+        </td>
+        <td class="text-end">
+          <button
+            type="button"
+            class="btn btn-outline-success btn-sm m-1"
+            [routerLink]="[item.id, 'alterar']"
+          >Editar</button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            [routerLink]="[item.id, 'excluir']"      
+          >Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

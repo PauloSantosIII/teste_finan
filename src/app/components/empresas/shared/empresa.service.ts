@@ -2,32 +2,33 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { Empresa } from './empresa.model'
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpresaService {
-  private apiUrl = ''  
+  private apiUrl = environment.apiUrl
 
-  constructor(protected http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   pegarLista(): Observable<Empresa[]> {
-    return this.http.get<Empresa[]>(this.apiUrl)
+    return this.http.get<Empresa[]>(this.apiUrl + 'empresas')
   }
 
   pegarPorId(id: number): Observable<Empresa> {
-    return this.http.get<Empresa>(this.apiUrl + '/' + id)
+    return this.http.get<Empresa>(this.apiUrl + 'empresas/' + id)
   }
 
-  cadastrarEmpresa(empresa: Empresa): Observable<Empresa> {
-    return this.http.post<Empresa>(this.apiUrl, empresa)
+  cadastrarT(empresa: Empresa): Observable<Empresa> {
+    return this.http.post<Empresa>(this.apiUrl + 'empresas', empresa)
   }
 
-  alterarEmpresa(empresa: Empresa): Observable<Empresa> {
-    return this.http.put<Empresa>(this.apiUrl, empresa)
+  alterarT(empresa: Empresa): Observable<Empresa> {
+    return this.http.put<Empresa>(this.apiUrl + 'empresas', empresa)
   }
 
-  excluirrEmpresa(id: number): Observable<Empresa> {
-    return this.http.delete<Empresa>(this.apiUrl + '/' + id)
+  excluirT(id: number): Observable<Empresa> {
+    return this.http.delete<Empresa>(this.apiUrl + 'empresas/' + id)
   }
 }

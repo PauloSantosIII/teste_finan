@@ -5,17 +5,23 @@
   <div class="container p-3 d-flex justify-content-center">
     <button 
       type="button"
-      class="btn btn-outline-light btn-lg mx-3"
+      class="btn btn-lg mx-3"
+      [ngClass]="url === '/empresas' ? 'btn-light' : 'btn-outline-light'"
+      routerLinkActive="active"
       routerLink="/empresas"
     >Empresas</button>
     <button 
       type="button"
-      class="btn btn-outline-light btn-lg mx-3"
+      class="btn btn-lg mx-3"
+      [ngClass]="url === '/produtos' ? 'btn-light' : 'btn-outline-light'"
+      routerLinkActive="active"
       routerLink="/produtos"
     >Produtos</button>
     <button 
       type="button"
-      class="btn btn-outline-light btn-lg mx-3"
+      class="btn btn-lg mx-3"
+      [ngClass]="url === '/compras' ? 'btn-light' : 'btn-outline-light'"
+      routerLinkActive="active"
       routerLink="/compras"
     >Compras</button>
   </div>

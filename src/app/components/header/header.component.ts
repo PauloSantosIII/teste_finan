@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 
 @Component({
@@ -7,11 +7,12 @@ import { Router } from '@angular/router'
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+  @Input() url: string = ''
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.router.url)
+    this.url = this.router.url
   }
 
 }
